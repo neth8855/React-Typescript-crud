@@ -47,6 +47,9 @@ const CreateNotes: React.FC<ICreateNotesProps> = ({note, setNote, notes, setNote
         }
         
         setError("");
+        setTitle("") 
+        setText("") 
+        setColor("#dfdfdf") 
         setNote({
             id: "",
             title: "",
