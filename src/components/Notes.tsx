@@ -4,21 +4,21 @@ import Button from 'react-bootstrap/Button';
 import { Note } from '../models/note.model';
 
 interface INotesProps {
-    data: Note,
-    setNote: React.Dispatch<React.SetStateAction<Note>>,
-    handleDelete: (id: string) => void 
+    note: Note, 
+    handleDelete: (id: string) => void, 
+    handleEdit: (note: Note) => void  
 }
 
-const Notes: React.FC<INotesProps> = ({data, setNote, handleDelete}) => {
+const Notes: React.FC<INotesProps> = ({ note, handleDelete, handleEdit }) => {
     return (
         <div className="mb-3">
-            <Card style={{backgroundColor: data.color}}>
+            <Card style={{backgroundColor: note.color}}>
                 <Card.Body>
-                    <Card.Title>{data.title}</Card.Title>
-                    <Card.Text>{data.text}</Card.Text>
-                    <Card.Subtitle className="text-muted">{ data.date}</Card.Subtitle>
-                    <Button className="mt-3" variant="danger" onClick={ () => handleDelete(data.id)}>Delete</Button>
-                    <Button className="mt-3" variant="success" onClick={ () => setNote(data)}>Edit</Button>
+                    <Card.Title>{note.title}</Card.Title>
+                    <Card.Text>{note.text}</Card.Text>
+                    <Card.Subtitle className="text-muted">{ note.date}</Card.Subtitle>
+                    <Button className="mt-3" variant="danger" onClick={ () => handleDelete(note.id)}>Delete</Button>
+                    <Button className="mt-3" variant="success" onClick={ () => handleEdit(note)}>Edit</Button>
                 </Card.Body>
             </Card>
             </div>

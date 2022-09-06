@@ -7,15 +7,20 @@ import './App.css';
 import { Col, Container, Row } from 'react-bootstrap';
 
 function App() {
-  const [note, setNote] = useState<Note>({} as Note)
+  const [note, setNote] = useState<Note>({
+    id: "",
+    title: "",
+    text: "",
+    color: "#dfdfdf",
+    date: ""
+  } as Note)
   const [notes, setNotes] = useState<Note[]>([{
     id: (new Date).toString(),
     title: "Meetings",
-    text: " Schedule meeting with UI/UX Team",
+    text: "Schedule meeting with UI/UX Team",
     color: "#dfdfdf",
     date: (new Date).toString()
   }]);
-
 
   return (
     <>
@@ -23,7 +28,7 @@ function App() {
       <Container className="mt-5">
         <Row>
           <Col>
-            <NotesList note={note} setNote={ setNote } notes={notes} setNotes={ setNotes}/>
+            <NotesList setNote={ setNote } notes={notes} setNotes={ setNotes}/>
           </Col>
         </Row>
         <Row>
