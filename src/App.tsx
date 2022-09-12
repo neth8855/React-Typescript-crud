@@ -14,12 +14,22 @@ function App() {
     color: "#dfdfdf",
     date: ""
   } as Note)
+
+  const nextDay = new Date()
+  nextDay.setDate(nextDay.getDate() + 1)  
+
   const [notes, setNotes] = useState<Note[]>([{
     id: (new Date).toString(),
-    title: "Meetings",
+    title: "Meetings Zoom",
     text: "Schedule meeting with UI/UX Team",
     color: "#dfdfdf",
-    date: (new Date).toString()
+    date: (new Date).toString(),
+  },{
+    id: nextDay.toString(),
+    title: "Meetings Webex",
+    text: "Schedule meeting with UI/UX Team",
+    color: "#e9b692",
+    date: nextDay.toString()
   }]);
 
   return (
